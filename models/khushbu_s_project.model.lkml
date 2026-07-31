@@ -8,7 +8,7 @@ datagroup: khushbu_s_project_default_datagroup {
   max_cache_age: "1 hour"
 }
 
-persist_with: khushbu_s_project_default_datagroup
+#persist_with: khushbu_s_project_default_datagroup
 
 explore: billion_orders {
   join: orders {
@@ -22,6 +22,10 @@ explore: billion_orders {
     sql_on: ${orders.user_id} = ${users.id} ;;
     relationship: many_to_one
   }
+}
+
+explore: sql_runner_query {
+  persist_with: khushbu_s_project_default_datagroup
 }
 
 explore: binary_test {}
