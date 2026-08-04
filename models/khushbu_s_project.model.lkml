@@ -4,11 +4,11 @@ connection: "thelook"
 include: "/views/**/*.view.lkml"
 
 datagroup: khushbu_s_project_default_datagroup {
-  # sql_trigger: SELECT MAX(id) FROM etl_log;;
+  sql_trigger: SELECT MAX(id) FROM etl_log;;
   max_cache_age: "1 hour"
 }
 
-#persist_with: khushbu_s_project_default_datagroup
+persist_with: khushbu_s_project_default_datagroup
 
 explore: billion_orders {
   join: orders {
@@ -25,7 +25,7 @@ explore: billion_orders {
 }
 
 explore: sql_runner_query {
-  persist_with: khushbu_s_project_default_datagroup
+
 }
 
 explore: binary_test {}

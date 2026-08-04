@@ -14,6 +14,8 @@ view: sql_runner_query {
       ORDER BY
           3 DESC
       LIMIT 500 {% endraw %} ;;
+      datagroup_trigger: khushbu_s_project_default_datagroup
+      indexes: ["orders_id"]
   }
 
   measure: count {
@@ -39,8 +41,8 @@ view: sql_runner_query {
   set: detail {
     fields: [
         orders_status,
-	orders_id,
-	orders_count
+  orders_id,
+  orders_count
     ]
   }
 }
