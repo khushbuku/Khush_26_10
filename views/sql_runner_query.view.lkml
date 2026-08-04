@@ -15,7 +15,7 @@ view: sql_runner_query {
           3 DESC
       LIMIT 500 {% endraw %} ;;
       datagroup_trigger: khushbu_s_project_default_datagroup
-      indexes: ["orders_id"]
+      indexes: ["orders.id"]
   }
 
   measure: count {
@@ -29,6 +29,7 @@ view: sql_runner_query {
   }
 
   dimension: orders_id {
+    primary_key: yes
     type: number
     sql: ${TABLE}.`orders.id` ;;
   }
