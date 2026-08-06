@@ -27,7 +27,7 @@ view: order_items_vijaya {
     sql: ${TABLE}.sale_price ;;
   }
 
-  parameter: status_selector {
+  parameter: status {
     type: string
     default_value: "All"
     allowed_value: {
