@@ -26,6 +26,28 @@ view: order_items_vijaya {
     type: number
     sql: ${TABLE}.sale_price ;;
   }
+
+  parameter: status_selector {
+    type: string
+    default_value: "All"
+    allowed_value: {
+      label: "All Statuses"
+      value: "All"
+    }
+    allowed_value: {
+      label: "Pending"
+      value: "pending"
+    }
+    allowed_value: {
+      label: "Completed"
+      value: "completed"
+    }
+    allowed_value: {
+      label: "Cancelled"
+      value: "cancelled"
+    }
+  }
+
   measure: count {
     type: count
     drill_fields: [id, orders.id, inventory_items.id]
