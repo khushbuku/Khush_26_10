@@ -19,7 +19,7 @@ view: orders {
 
     link: {
       label: "Drill through Catalog Items History"
-      url: "/dashboards/115?Item+Description={{ value | replace: ',', '^,' | url_encode }}&ID={{ orders.id._value | url_encode }}"
+      url: "/dashboards/115?{{ 'Item Description' | url_encode }}={{ value | url_encode }}&{{ 'ID' | url_encode }}={{ _fields['orders.id'].value | url_encode }}"
   }
   }
 
