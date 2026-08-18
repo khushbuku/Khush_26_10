@@ -15,7 +15,14 @@ view: orders {
   dimension: status {
     type: string
     sql: ${TABLE}.status ;;
+    required_fields: [id]
+
+    link: {
+      label: "Drill through Catalog Items History"
+      url: "/dashboards/115?Item+Description={{ value | replace: ',', '^,' | url_encode }}&ID={{ orders.id._value | url_encode }}"
   }
+  }
+
   dimension: user_id {
     type: number
     # hidden: yes
@@ -29,18 +36,17 @@ view: orders {
   # ----- Sets of fields for drilling ------
   set: detail {
     fields: [
-	id,
-	users.id,
-	users.first_name,
-	users.last_name,
-	billion_orders.count,
-	fakeorders.count,
-	hundred_million_orders.count,
-	hundred_million_orders_wide.count,
-	order_items.count,
-	order_items_vijaya.count,
-	ten_million_orders.count
-	]
+  id,
+  users.id,
+  users.first_name,
+  users.last_name,
+  billion_orders.count,
+  fakeorders.count,
+  hundred_million_orders.count,
+  hundred_million_orders_wide.count,
+  order_items.count,
+  order_items_vijaya.count,
+  ten_million_orders.count
+  ]
   }
-
 }
